@@ -1,0 +1,13 @@
+#test service
+com.huoli.enableload.annotation.services.TestService=\
+com.huoli.enableload.annotation.services.TestServiceImpl
+
+#File Data
+com.huoli.enableload.annotation.services.FileService=\
+com.huoli.enableload.annotation.services.FileServiceImpl
+
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.huoli.enableload.annotation.HelloWorldConfiguration,\
+com.huoli.enableload.annotation.filecontent.FileContent,\
+com.huoli.enableload.annotation.utilEntity.ResultIndex
+

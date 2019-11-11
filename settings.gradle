@@ -1,0 +1,4 @@
+rootProject.name = 'test'
+include 'messagetest'
+include 'spring-load'
+

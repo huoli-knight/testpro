@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<div>
+    <div>
+        <input class="button" type="button" value="展示">
+    </div>
+    <div class="content">
+    </div>
+</div>
+</body>
+<script>
+    $(function() {
+        initContent();
+        function initContent() {
+            $(".content").html("展示页面：<br>");
+        }
+        
+        function getdata() {
+            $.ajax({
+                type : "post",
+                url : "http://192.168.124.7:8080/test/index",
+                dataType : "json",
+                async : false,
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        $(".content").append(data[i].interfaces + "=\\<br>");
+                        for (var j = 0; j < data[i].impl.length - 1; j++) {
+                            $(".content").append(data[i].impl[j] + ",\\<br>");
+                        }
+                        $(".content").append(data[i].impl[j] + "\<br>");
+                        $(".content").append("<br>");
+                    }
+                },
+                error: function (data) {
+                    alert("error" + data);
+
+                }
+            })
+        }
+        $(".button").click(function () {
+            var state = $(".button").val();
+            if (state == "展示") {
+                getdata();
+                $(".button").val("清除");
+            }
+            if (state == "清除") {
+                initContent();
+                $(".button").val("展示");
+            }
+        });
+    })
+</script>
+</html>

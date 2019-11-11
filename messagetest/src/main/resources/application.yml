@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: ${profile:dev}
+  application:
+    name: messagetest
+  jackson:
+    parser:
+      allow_unquoted_control_chars: true
+
+server:
+  port: ${port:8080}
+
+# 线程池配置
+thread:
+  pool:
+    corePoolSize: 50
+    maxPoolSize: 100
+    queueCapacity: 30
+

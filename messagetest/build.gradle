@@ -1,0 +1,5 @@
+
+dependencies {
+    compile project(":spring-load")
+    compile 'org.springframework.boot:spring-boot-starter-web:2.1.1.RELEASE'
+}
